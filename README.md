@@ -11,4 +11,6 @@ This application requires:
 
 ## Usage
 Invoke the scanner server daemon with the following command (omit the option argument if PDF conversion is not desired):
-`perl dell1600n-net-scan.pl --listen <printer hostname> --name CSH --multi-session --resolution 300 --option pdf`
+```
+perl dell1600n-net-scan.pl --listen <printer hostname> --name CSH --multi-session --resolution 300 --option pdf
+```
