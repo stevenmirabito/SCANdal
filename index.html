@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>CSH Scanner Dropbox</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- CSH Bootstrap Theme -->
+	<link href="css/members.min.css" rel="stylesheet">
+
+    <!-- Page CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/csh_logo_white.svg" alt="CSH" class="logo"> <span>Scanner Dropbox</span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+		  <ul class="nav navbar-nav navbar-right">
+		    <li><a href="https://members.csh.rit.edu/"><span class="glyphicon glyphicon-share-alt flip-horizontal"></span> Back to Members Portal</a></li>
+		  </ul>  
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+		<div class="float left"><img src="images/dell-1600n.png" id="printer-image"></div>
+		<div class="float right" id="printer-description">
+			<p>This site allows you to scan from Superprinter in the Library and pick up your document from any computer.</p>
+			<p class="small"><a href="https://wiki.csh.rit.edu/wiki/Superprinter">Want to learn how to scan from or print to Superprinter? Check out the article on the wiki &rarr;</a></p>
+		</div>
+      </div>
+    </div>
+
+    <div class="container">
+	  <div class="alert alert-info" role="alert"><strong>Documents will only remain on the server for 30 minutes before being automatically deleted.</strong><br>To delete your document immediately, simply click the trash can next to the filename.</div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <strong>Scans</strong>
+          </div>
+		  <div class="panel-right float right">
+			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+		  </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+		    <thead>
+              <tr>
+				<th>Timestamp</th>
+                <th>Filename</th>
+                <th>Download</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="scanList">
+				<tr>
+					<td>09/10/2015 01:54 AM</td>
+					<td>SCAN_JUST_TESTING_09102015</td>
+					<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
+					<td><span class="glyphicon glyphicon-trash"></span></td>
+				</tr>
+				<tr>
+					<td>09/10/2015 01:54 AM</td>
+					<td>SCAN_JUST_TESTING_09102015</td>
+					<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
+					<td><span class="glyphicon glyphicon-trash"></span></td>
+				</tr>
+				<tr>
+					<td>09/10/2015 01:54 AM</td>
+					<td>SCAN_JUST_TESTING_09102015</td>
+					<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
+					<td><span class="glyphicon glyphicon-trash"></span></td>
+				</tr>
+				<tr>
+					<td>09/10/2015 01:54 AM</td>
+					<td>SCAN_JUST_TESTING_09102015</td>
+					<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
+					<td><span class="glyphicon glyphicon-trash"></span></td>
+				</tr>
+			</tbody>
+		  </table>
+        </div>
+      </div>
+
+      <footer>
+        <p class="float left">CSH Scanner Dropbox by <a href="https://profiles.csh.rit.edu/user/smirabito">Steven Mirabito</a>.</p><p class="float right"><img src="images/github.png" id="github"> <a href="https://github.com/stevenmirabito/CSH-Scan-Dropbox">GitHub</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Javascript -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

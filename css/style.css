@@ -1,0 +1,62 @@
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	background-color: #eee;
+	background-image: url('../images/background.png');
+	background-attachment: fixed;
+}
+
+.logo {
+  width: 48px;
+  height: 46px;
+}
+
+.navbar-brand .logo {
+  width: 24px;
+  height: 23px;
+  position: relative;
+  top: -2px;
+  display: inline;
+}
+
+.glyphicon.flip-horizontal {
+	transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+}
+
+.float.right {
+	float: right;
+}
+
+.float.left {
+	float: left;
+}
+
+#printer-image {
+	width: 120px;
+}
+
+#printer-description {
+	height: 80px;
+	margin: 20px 0;
+}
+
+.panel .panel-heading .panel-right {
+	margin-top: -27px;
+	margin-right: -5px;
+}
+
+.small {
+	font-size: 15px !important;
+}
+
+#github {
+	height: 15px;
+}
+
+/* Decreasing panel-heading padding for mobile devices */
+.panel-heading {
+  padding: 10px;
+}
