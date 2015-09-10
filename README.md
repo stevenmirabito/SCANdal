@@ -1,7 +1,7 @@
 # CSH Scan Dropbox
 Allows CSH members to scan documents to a central server and pick them up from any computer. Documents will only remain on the server for 30 minutes before being automatically deleted via cron, and users will be able to delete their documents on demand as soon as they've downloaded them.
 
-Thanks to (wwwslinger)[https://github.com/wwwslinger] for the (Perl script)[https://gist.github.com/wwwslinger/ac6b49cb991d2d5263a2] that makes this possible.
+Thanks to [wwwslinger](https://github.com/wwwslinger) for the [Perl script](https://gist.github.com/wwwslinger/ac6b49cb991d2d5263a2) that makes this possible.
 
 ## Requirements
 This application requires:
