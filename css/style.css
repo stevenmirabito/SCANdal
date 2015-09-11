@@ -26,24 +26,6 @@ body {
 	-ms-transform: scaleX(-1);
 }
 
-.float.right {
-	float: right;
-}
-
-.float.left {
-	float: left;
-}
-
-#printer-image {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-.panel .panel-heading .panel-right {
-	margin-top: -27px;
-	margin-right: -5px;
-}
-
 .small {
 	font-size: 15px !important;
 }
@@ -52,11 +34,20 @@ body {
 	height: 15px;
 }
 
-.panel-body {
+#scanPanel {
 	position: relative;
+	min-height: 120px;
 }
 
-.overlay, .spinner {
+#scanPanelHead {
+	line-height: 34px;
+}
+
+#scanTable {
+	display: none;
+}
+
+.spinner {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -66,15 +57,10 @@ body {
 	display: none;
 }
 
-.overlay {
-	background: #333;
-	opacity: 0.2;
-}
-
 .sk-cube-grid {
   width: 40px;
   height: 40px;
-  margin: 100px auto;
+  margin: 40px auto;
 }
 
 .sk-cube-grid .sk-cube {
