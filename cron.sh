@@ -15,7 +15,7 @@ echo "Checking for scans older than 30 minutes..."
 # Are there any scans to check?
 if [ "$(ls -A $SCAN_DIR)" ]; then
      # Yes, loop over all of the scans
-	for file in $SCAN_DIR
+	for file in $SCAN_DIR/*
 	do
 			# Is the scan older than 30 minutes?
 			if [ `stat --format=%Y $file` -le $(( `date +%s` - 1800 )) ]; then
