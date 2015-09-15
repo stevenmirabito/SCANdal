@@ -38,8 +38,13 @@ body {
 	height: 15px;
 }
 
+#noScansAlert {
+	display: none;
+}
+
 #scanPanel {
 	position: relative;
+	min-height: 120px;
 }
 
 #scanPanelHead {

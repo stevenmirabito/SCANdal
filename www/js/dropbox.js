@@ -21,8 +21,17 @@ function handleQueryString(queryString){
 }
 
 function refreshScanList(){
-	// Hide the table and show the spinner with fancy jQuery animations
-	$('#scanTableContainer').slideUp('slow', function(){
+	// What's currently showing?
+	if($('#noScansAlert').is(':visible')){
+		// The no scans alert
+		var visibleElement = $('#noScansAlert');
+	} else {
+		// The scan table
+		var visibleElement = $('#scanTable');
+	}
+	
+	// Hide the element decided by the if above and show the spinner with fancy jQuery animations
+	visibleElement.slideUp('slow', function(){
 		$('.spinner').fadeIn('slow');
 	
 		// Create a request to send to the server
@@ -44,8 +53,10 @@ function refreshScanList(){
 				
 				// See if there weren't any scans returned
 				if(response.response.length === 0){
-					$("#scanTable").hide();
-					$("#noScansAlert").show();
+					// Hide the spinner and show the no scans alert with fancy jQuery animations
+					$('.spinner').fadeOut('slow', function(){
+						$("#noScansAlert").slideDown('slow');
+					});
 				} else {
 					// Add each scan returned to the table
 					$.each(response.response, function(index, scan){
@@ -54,13 +65,13 @@ function refreshScanList(){
 
 					// Bind action links in the table
 					bindActionLinks();
+					
+					// Hide the spinner and show the refreshed table with fancy jQuery animations
+					$('.spinner').fadeOut('slow', function(){
+						$('#scanTableContainer').slideDown('slow');
+					});
 				}
-			}
-
-			// Hide the spinner and show the refreshed table with fancy jQuery animations
-			$('.spinner').fadeOut('slow', function(){
-				$('#scanTableContainer').slideDown('slow');
-			});
+			}			
 		}).fail(function(){
         	        alert('Unable to perform Ajax request. Please refresh this page.');
        		});

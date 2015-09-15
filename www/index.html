@@ -54,7 +54,7 @@
 
     <div class="container">
       <div id="httpError" class="alert alert-danger" role="alert"><strong>Whoops!</strong> Looks like you tried to navigate to a page that doesn't exist. We've taken you back to the home page.</div>
-      <div class="alert alert-info" role="alert"><strong>Documents will only remain on the server for 30 minutes before being automatically deleted.</strong><br>To delete your document immediately, simply click the trash can next to the filename.</div>
+      <div class="alert alert-warning" role="alert"><strong>Documents will only remain on the server for 30 minutes before being automatically deleted.</strong><br>To delete your document immediately, simply click the trash can next to the filename.</div>
       <div class="panel panel-default">
         <div class="panel-heading clearfix" id="scanPanelHead">
           <div class="panel-title" id="scanPanelTitle">
@@ -76,7 +76,8 @@
 			  <div class="sk-cube sk-cube9"></div>
 			</div>
 		  </div>
-		  <div class="table-responsive" id="scanTableContainer">
+		  <div class="alert alert-info" role="alert" id="noScansAlert"><strong>No scans available.</strong> Need help scanning? <a href="https://wiki.csh.rit.edu/wiki/Superprinter">Check out the article on the wiki &rarr;</a></div>
+		  <div class="table-responsive">
 			  <table class="table table-striped" id="scanTable">
 				<thead>
 				  <tr>
@@ -88,7 +89,6 @@
 				</thead>
 				<tbody id="scanList"></tbody>
 			  </table>
-			  <div class="alert alert-info" role="alert" id="noScansAlert"><strong>No scans available.</strong> Need help scanning? <a href="https://wiki.csh.rit.edu/wiki/Superprinter">Check out the article on the wiki &rarr;</a></div>
 			</div>
         </div>
       </div>
