@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# dell1600n-net-scan
+# Starts and stops the dell1600n-net-scan service
+#
+# chkconfig: 2345 12 88
+# description: dell1600n-net-scan allows you to scan from a Dell 1600n (or another supported printer) to the directory of your choice
+# processname: perl dell1600n-net-scan.pl <arguments>
+# pidfile: /var/run/dell1600n-net-scan.pid
+### BEGIN INIT INFO
+# Provides: $dell1600n-net-scan
+### END INIT INFO
+
+case "$1" in
+  start)
+    echo "Starting the Dell 1600n Net Scan service..."
+    daemon --name=dell1600n-net-scan --pidfile=/var/run/dell1600n-net-scan.pid --user=www-data --output=/var/log/dell1600n-net-scan.log --stdout=/var/log/dell1600n-net-scan.log --stderr=/var/log/dell1600n-net-scan.error.log
+    ;;
+  stop)
+    echo "Stopping script blah"
+    echo "Could do more here"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/blah {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -22,7 +22,7 @@ function handleQueryString(queryString){
 
 function refreshScanList(){
 	// Hide the table and show the spinner with fancy jQuery animations
-	$('#scanTable').slideUp('slow', function(){
+	$('#scanTableContainer').slideUp('slow', function(){
 		$('.spinner').fadeIn('slow');
 	
 		// Create a request to send to the server
@@ -40,20 +40,26 @@ function refreshScanList(){
 				alert('Server was unable to fetch the latest data. Please try again later. The server said: ' + response.response.error);
 			} else {
 				// Empty out the scan list before we repopulate it
-               		 	$('#scanList').empty();
+				$('#scanList').empty();
+				
+				// See if there weren't any scans returned
+				if(response.response.length === 0){
+					$("#scanTable").hide();
+					$("#noScansAlert").show();
+				} else {
+					// Add each scan returned to the table
+					$.each(response.response, function(index, scan){
+						$('#scanList').append('<tr><td>' + scan.timestamp + '</td><td>' + scan.filename + '</td><td><a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="tiff"><span class="glyphicon glyphicon-picture"></span> TIFF</a> <a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="pdf"><span class="glyphicon glyphicon-file"></span> PDF</a></td><td><a href="#" data-toggle="modal" data-target="#deleteModal" data-filename="' + scan.filename + '"><span class="glyphicon glyphicon-trash"></span></a></td></tr>');
+					});
 
-				// Add each scan returned to the table
-				$.each(response.response, function(index, scan){
-					$('#scanList').append('<tr><td>' + scan.timestamp + '</td><td>' + scan.filename + '</td><td><a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="tiff"><span class="glyphicon glyphicon-picture"></span> TIFF</a> <a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="pdf"><span class="glyphicon glyphicon-file"></span> PDF</a></td><td><a href="#" data-toggle="modal" data-target="#deleteModal" data-filename="' + scan.filename + '"><span class="glyphicon glyphicon-trash"></span></a></td></tr>');
-				});
-
-				// Bind action links in the table
-				bindActionLinks();
+					// Bind action links in the table
+					bindActionLinks();
+				}
 			}
 
 			// Hide the spinner and show the refreshed table with fancy jQuery animations
 			$('.spinner').fadeOut('slow', function(){
-				$('#scanTable').slideDown('slow');
+				$('#scanTableContainer').slideDown('slow');
 			});
 		}).fail(function(){
         	        alert('Unable to perform Ajax request. Please refresh this page.');
