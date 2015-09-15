@@ -68,7 +68,7 @@ function refreshScanList(){
 					
 					// Hide the spinner and show the refreshed table with fancy jQuery animations
 					$('.spinner').fadeOut('slow', function(){
-						$('#scanTableContainer').slideDown('slow');
+						$('#scanTable').slideDown('slow');
 					});
 				}
 			}			
