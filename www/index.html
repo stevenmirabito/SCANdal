@@ -47,13 +47,14 @@
 	
     <div class="jumbotron">
       <div class="container">
-			  <p>This service allows you to scan from Superprinter and pick up your document from any computer.</p>
-			  <p class="small"><a href="https://wiki.csh.rit.edu/wiki/Superprinter">Want to learn how to scan from or print to Superprinter? Check out the article on the wiki &rarr;</a></p>
+        <p>This service allows you to scan from Superprinter and pick up your document from any computer.</p>
+	<p class="small"><a href="https://wiki.csh.rit.edu/wiki/Superprinter">Want to learn how to scan from or print to Superprinter? Check out the article on the wiki &rarr;</a></p>
       </div>
     </div>
 
     <div class="container">
-	  <div class="alert alert-info" role="alert"><strong>Documents will only remain on the server for 30 minutes before being automatically deleted.</strong><br>To delete your document immediately, simply click the trash can next to the filename.</div>
+      <div id="httpError" class="alert alert-danger" role="alert"><strong>Whoops!</strong> Looks like you tried to navigate to a page that doesn't exist. We've taken you back to the home page.</div>
+      <div class="alert alert-info" role="alert"><strong>Documents will only remain on the server for 30 minutes before being automatically deleted.</strong><br>To delete your document immediately, simply click the trash can next to the filename.</div>
       <div class="panel panel-default">
         <div class="panel-heading clearfix" id="scanPanelHead">
           <div class="panel-title" id="scanPanelTitle">
@@ -85,50 +86,7 @@
 					<th>Actions</th>
 				  </tr>
 				</thead>
-				<tbody id="scanList">
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><a href="#" data-toggle="modal" data-target="#deleteModal" data-filename="SCAN_JUST_TESTING_09102015"><span class="glyphicon glyphicon-trash"></span></a></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-					<tr>
-						<td>09/10/2015 01:54 AM</td>
-						<td>SCAN_JUST_TESTING_09102015</td>
-						<td><span class="glyphicon glyphicon-picture"></span> TIFF <span class="glyphicon glyphicon-file"></span> PDF</td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
-				</tbody>
+				<tbody id="scanList"></tbody>
 			  </table>
 			</div>
         </div>

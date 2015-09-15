@@ -7,16 +7,16 @@ body {
 }
 
 .logo {
-  width: 48px;
-  height: 46px;
+	width: 48px;
+	height: 46px;
 }
 
 .navbar-brand .logo {
-  width: 24px;
-  height: 23px;
-  position: relative;
-  top: -2px;
-  display: inline;
+	width: 24px;
+	height: 23px;
+	position: relative;
+	top: -2px;
+	display: inline;
 }
 
 .glyphicon.flip-horizontal {
@@ -24,6 +24,10 @@ body {
 	-moz-transform: scaleX(-1);
 	-webkit-transform: scaleX(-1);
 	-ms-transform: scaleX(-1);
+}
+
+#httpError {
+	display: none;
 }
 
 .small {
@@ -58,18 +62,18 @@ body {
 }
 
 .sk-cube-grid {
-  width: 40px;
-  height: 40px;
-  margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	margin: 40px auto;
 }
 
 .sk-cube-grid .sk-cube {
-  width: 33%;
-  height: 33%;
-  background-color: #66206c;
-  float: left;
-  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+ 	width: 33%;
+	height: 33%;
+	background-color: #66206c;
+	float: left;
+	-webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+        	animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
 }
 .sk-cube-grid .sk-cube1 {
   -webkit-animation-delay: 0.2s;
