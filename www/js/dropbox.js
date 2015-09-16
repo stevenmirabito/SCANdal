@@ -6,7 +6,7 @@
  * @version	0.1 alpha
  */
 
-var listHash;
+var listHash = '';
 
 function handleQueryString(queryString){
 	if(queryString['e'] !== undefined){
@@ -52,7 +52,7 @@ function refreshScanList(){
 				$('#scanList').empty();
 				
 				// See if there weren't any scans returned
-				if(response.response.length === 0){
+				if(response.response.scanList.length === 0){
 					// Hide the spinner and show the no scans alert with fancy jQuery animations
 					$('.spinner').fadeOut('slow', function(){
 						$("#noScansAlert").slideDown('slow');
@@ -66,6 +66,9 @@ function refreshScanList(){
 					// Bind action links in the table
 					bindActionLinks();
 					
+					// Update the list hash
+					listHash = response.response.hash.hash;
+					
 					// Hide the spinner and show the refreshed table with fancy jQuery animations
 					$('.spinner').fadeOut('slow', function(){
 						$('#scanTable').slideDown('slow');
@@ -74,7 +77,7 @@ function refreshScanList(){
 			}			
 		}).fail(function(){
         	        alert('Unable to perform Ajax request. Please refresh this page.');
-       		});
+       	});
 	});
 }
 
@@ -87,11 +90,29 @@ function bindActionLinks(){
 }
 
 function checkForUpdates(){
-	// TODO: Do some kind of Ajax request here
-	
-		// if (data.hash !== listHash){
-		// 		refreshScanList();
-		// }
+	// Create a request to send to the server
+	var request = {'function': 'get_list_hash'};
+	var json_request = JSON.stringify(request);
+		
+	// Request the list hash from the server
+	$.ajax({
+		url: 'ajax.php',
+		method: 'POST',
+		data: { request: json_request },
+		dataType: 'json'
+	}).success(function(response){
+		if(response.success === false){
+			alert('Server was unable to fetch the latest data. Please try again later. The server said: ' + response.response.error);
+		} else {
+			// Check to see if the list hash has changed
+			if(response.hash !== listHash){
+				// List changed, refresh the table
+				refreshScanList();
+			} // Else don't do anything
+		}			
+	}).fail(function(){
+		alert('Unable to perform Ajax request. Please refresh this page.');
+	});
 }
 
 $(document).ready(function() {

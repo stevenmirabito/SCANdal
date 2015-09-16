@@ -67,7 +67,7 @@
 		$files = glob($GLOBALS['scan_dir'].'/*.tiff');
 
 		// Set up our response array
-		$response = array();
+		$scanList = array();
 
 		// Add them to our response array
 		foreach ($files as $file) {
@@ -79,15 +79,18 @@
 			$timestamp = date('n/j/Y g:i A', filemtime($file));
 			
 			// Build the response array
-			$response[] = array('timestamp' => $timestamp, 'filename' => $filename);
+			$scanList[] = array('timestamp' => $timestamp, 'filename' => $filename);
 		}
 
+		// Build the response
+		$response = array('scanList' => $scanList, 'hash' => get_list_hash($request));
+		
 		return $response;
 	}
 
 	function get_list_hash($request){
 		// Get an array of the files in the scan directory
-                $files = glob($GLOBALS['scan_dir'].'/*.tiff');
+        $files = glob($GLOBALS['scan_dir'].'/*.tiff');
 
 		// Serialize, then hash the $files array
 		$hash = sha1(serialize($files));
