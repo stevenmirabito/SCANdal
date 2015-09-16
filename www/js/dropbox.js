@@ -105,7 +105,7 @@ function checkForUpdates(){
 			alert('Server was unable to fetch the latest data. Please try again later. The server said: ' + response.response.error);
 		} else {
 			// Check to see if the list hash has changed
-			if(response.hash !== listHash){
+			if(response.response.hash !== listHash){
 				// List changed, refresh the table
 				refreshScanList();
 			} // Else don't do anything
