@@ -14,6 +14,8 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/var/csh-scan/dell1600n-net-scan.pl
 DAEMON_OPTS='--listen mfp.csh.rit.edu --name CSH --multi-session --resolution 300 --option pdf'
+SCAN_DIR=/tmp/scans
+USER=www-data
 NAME=dell1600n-net-scan
 DESC="Dell 1600n Network Scanning Service"
 
@@ -24,7 +26,7 @@ set -e
 case "$1" in
   start)
  echo -n "Starting $DESC: "
- start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
+ start-stop-daemon --start --quiet --chuid $USER --chdir $SCAN_DIR --background --make-pidfile --pidfile /var/run/$NAME.pid \
   --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
  echo "$NAME."
  ;;
@@ -37,11 +39,11 @@ case "$1" in
  ;;
   restart|force-reload)
  echo -n "Restarting $DESC: "
- start-stop-daemon --stop --quiet --pidfile \
-  /var/run/$NAME.pid --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ start-stop-daemon --stop --quiet --pidfile /var/run/$NAME.pid \
+  --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
  sleep 1
- start-stop-daemon --start --quiet --pidfile \
-  /var/run/$NAME.pid --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ start-stop-daemon --start --quiet --chuid $USER --chdir $SCAN_DIR --background --make-pidfile 
+  --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
  echo "$NAME."
  ;;
   *)
