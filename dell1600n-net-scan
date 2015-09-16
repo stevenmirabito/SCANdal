@@ -5,7 +5,6 @@
 #
 # chkconfig: 2345 12 88
 # description: dell1600n-net-scan allows you to scan from a Dell 1600n (or another supported printer) to the directory of your choice
-# processname: perl dell1600n-net-scan.pl <arguments>
 # pidfile: /var/run/dell1600n-net-scan.pid
 ### BEGIN INIT INFO
 # Provides: $dell1600n-net-scan
@@ -20,6 +19,11 @@ NAME=dell1600n-net-scan
 DESC="Dell 1600n Network Scanning Service"
 
 test -f $DAEMON || exit 0
+
+# Make sure the scans directory exists
+if [ -d "$SCAN_DIR" ]; then
+	mkdir $SCAN_DIR
+fi
 
 set -e
 
