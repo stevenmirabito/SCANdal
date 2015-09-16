@@ -21,7 +21,7 @@ DESC="Dell 1600n Network Scanning Service"
 test -f $DAEMON || exit 0
 
 # Make sure the scans directory exists
-if [ -d "$SCAN_DIR" ]; then
+if [ ! -d "$SCAN_DIR" ]; then
 	mkdir $SCAN_DIR
 fi
 

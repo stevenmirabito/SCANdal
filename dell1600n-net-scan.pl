@@ -95,7 +95,7 @@ $main::IP_ADD_MEMBERSHIP = $main::IP_ADD_MEMBERSHIP_linux;
 # (See PostProcessFile comments for substitutions.)
 %main::emailCmd = ( "cmd" => "echo new scan | mutt &infiles; -s \"new scan\" &email;",
             "inFilePrefix" => "-a ",
-            "delInFiles" => 1 );
+            "delInFiles" => 0 );
 
 # The following options must match or things will go wrong.
 $main::preferredFileType = 2; # ( 2=>TIFF, 4=>PDF, 8=>JPEG )
