@@ -128,7 +128,7 @@ $main::emailAddr = undef;
 #   version 3.
 %main::pdfConvertCmd = ( "cmd" => "convert -compress zip &infiles; &outFile;",
             "outFile" => "&scanFileDir;/&scanFilePrefix;&timestamp;.pdf",
-            "delInFiles" => 1 );
+            "delInFiles" => 0 );
 
 # if set then all scans will be converted to PDF
 $main::forceToPdf = 0;
@@ -151,7 +151,7 @@ $main::instanceId = 0;
 $main::options{ "tgz" } = {
     "cmd" => "tar zcvf &outFile; &infiles;",
     "outFile" => "&scanFileDir;/&scanFilePrefix;&timestamp;.tgz",
-    "delInFiles" => 1,
+    "delInFiles" => 0,
     "description" => "Write scanned files to a tgz archive"
     };
 
@@ -173,7 +173,7 @@ $main::options{ "multipage-tiff" } = {
 $main::options{ "pdf" } = { 
     "cmd" => "convert -compress zip &infiles; &outFile;",
     "outFile" => "&scanFileDir;/&scanFilePrefix;&timestamp;.pdf",
-    "delInFiles" => 1,
+    "delInFiles" => 0,
     "description" => "Convert all scans to PDF format"
     };
 
