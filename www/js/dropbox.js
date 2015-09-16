@@ -51,6 +51,9 @@ function refreshScanList(){
 				// Empty out the scan list before we repopulate it
 				$('#scanList').empty();
 				
+				// Update the list hash
+				listHash = response.response.hash.hash;
+				
 				// See if there weren't any scans returned
 				if(response.response.scanList.length === 0){
 					// Hide the spinner and show the no scans alert with fancy jQuery animations
@@ -65,9 +68,6 @@ function refreshScanList(){
 
 					// Bind action links in the table
 					bindActionLinks();
-					
-					// Update the list hash
-					listHash = response.response.hash.hash;
 					
 					// Hide the spinner and show the refreshed table with fancy jQuery animations
 					$('.spinner').fadeOut('slow', function(){
