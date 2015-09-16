@@ -64,7 +64,7 @@
 
 	function get_scan_list($request){
 		// Get an array of the files in the scan directory
-		$files = glob($GLOBALS['scan_dir'].'/*.tiff');
+		$files = glob($GLOBALS['scan_dir'].'/*.tif');
 
 		// Set up our response array
 		$scanList = array();
@@ -90,7 +90,7 @@
 
 	function get_list_hash($request){
 		// Get an array of the files in the scan directory
-        $files = glob($GLOBALS['scan_dir'].'/*.tiff');
+        $files = glob($GLOBALS['scan_dir'].'/*.tif');
 
 		// Serialize, then hash the $files array
 		$hash = sha1(serialize($files));
@@ -107,7 +107,7 @@
 		}
 
 		// Build path to the files
-		$path_tiff = $GLOBALS['scan_dir'].'/'.$request['filename'].'.tiff';
+		$path_tiff = $GLOBALS['scan_dir'].'/'.$request['filename'].'.tif';
 		$path_pdf =  $GLOBALS['scan_dir'].'/'.$request['filename'].'.pdf';
 
 		// Check to see if the files exist, and, if so, delete them
