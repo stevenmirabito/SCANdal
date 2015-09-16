@@ -18,7 +18,7 @@
 
 		 // Build path to requested file
                 if($format === 'tiff'){
-                        $path = $GLOBALS['scan_dir'].'/'.$filename.'.tiff';
+                        $path = $GLOBALS['scan_dir'].'/'.$filename.'.tif';
                 } elseif($format === 'pdf'){
                         $path =  $GLOBALS['scan_dir'].'/'.$filename.'.pdf';
                 } else {
