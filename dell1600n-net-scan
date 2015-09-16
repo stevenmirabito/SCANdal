@@ -11,19 +11,45 @@
 # Provides: $dell1600n-net-scan
 ### END INIT INFO
 
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/var/csh-scan/dell1600n-net-scan.pl
+DAEMON_OPTS='--listen mfp.csh.rit.edu --name CSH --multi-session --resolution 300 --option pdf'
+NAME=dell1600n-net-scan
+DESC="Dell 1600n Network Scanning Service"
+
+test -f $DAEMON || exit 0
+
+set -e
+
 case "$1" in
   start)
-    echo "Starting the Dell 1600n Net Scan service..."
-    daemon --name=dell1600n-net-scan --pidfile=/var/run/dell1600n-net-scan.pid --user=www-data --output=/var/log/dell1600n-net-scan.log --stdout=/var/log/dell1600n-net-scan.log --stderr=/var/log/dell1600n-net-scan.error.log
-    ;;
+ echo -n "Starting $DESC: "
+ start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
+  --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ echo "$NAME."
+ ;;
   stop)
-    echo "Stopping script blah"
-    echo "Could do more here"
-    ;;
+ echo -n "Stopping $DESC: "
+ # --quiet
+ start-stop-daemon --stop --signal 15 --pidfile /var/run/$NAME.pid \
+  --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ echo "$NAME."
+ ;;
+  restart|force-reload)
+ echo -n "Restarting $DESC: "
+ start-stop-daemon --stop --quiet --pidfile \
+  /var/run/$NAME.pid --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ sleep 1
+ start-stop-daemon --start --quiet --pidfile \
+  /var/run/$NAME.pid --exec /usr/bin/perl --startas $DAEMON -- $DAEMON_OPTS
+ echo "$NAME."
+ ;;
   *)
-    echo "Usage: /etc/init.d/blah {start|stop}"
-    exit 1
-    ;;
+ N=/etc/init.d/$NAME
+ # echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+ echo "Usage: $N {start|stop|restart|force-reload}" >&2
+ exit 1
+ ;;
 esac
 
 exit 0
