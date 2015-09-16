@@ -62,7 +62,7 @@ function refreshScanList(){
 					});
 				} else {
 					// Add each scan returned to the table
-					$.each(response.response, function(index, scan){
+					$.each(response.response.scanList, function(index, scan){
 						$('#scanList').append('<tr><td>' + scan.timestamp + '</td><td>' + scan.filename + '</td><td><a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="tiff"><span class="glyphicon glyphicon-picture"></span> TIFF</a> <a href="#" class="actionDownload" data-filename="' + scan.filename + '" data-format="pdf"><span class="glyphicon glyphicon-file"></span> PDF</a></td><td><a href="#" data-toggle="modal" data-target="#deleteModal" data-filename="' + scan.filename + '"><span class="glyphicon glyphicon-trash"></span></a></td></tr>');
 					});
 
